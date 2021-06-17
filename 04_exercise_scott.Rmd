@@ -349,7 +349,12 @@ leaflet(data = Trips2) %>%
              label = ~station_and_number, 
              weight = 10, 
              opacity = 1, 
-             color = ~pal(number_in_each_station))
+             color = ~pal(number_in_each_station)) %>% 
+  addLegend(pal = pal, 
+            values = ~number_in_each_station, 
+            opacity = 0.5, 
+            title = NULL,
+            position = "bottomright")
              
 ```
   
@@ -382,7 +387,12 @@ leaflet(data = Trips_casual) %>%
              label = ~station_and_percent, 
              weight = 10, 
              opacity = 1, 
-             color = ~pal(casual_percent))
+             color = ~pal(casual_percent)) %>% 
+  addLegend(pal = pal, 
+            values = ~casual_percent, 
+            opacity = 0.5, 
+            title = NULL,
+            position = "bottomright")
 ```
 
 $\mathrm{Answer:}$ I think the map tell us a slightly different but clearer and more specific story than the graph we create last week. First, at the most central area, there are several stations with high causal percentage; as we keep moving to the edge of the city, stations in the middle mostly have low casual station, but when we are at the edge of the city, we can find more stations with comparatively high casual percentage. 
@@ -511,7 +521,12 @@ leaflet(data = MplsStops) %>%
                    lat = ~lat,
                    color = ~pal(problem), 
                    stroke = FALSE, 
-                   fillOpacity = 1)
+                   fillOpacity = 1) %>% 
+  addLegend(pal = pal, 
+            values = ~problem, 
+            opacity = 0.5, 
+            title = NULL,
+            position = "bottomright")
 
   
 ```
@@ -528,7 +543,6 @@ mpls_nbhd %>%
               left_join(mpls_suspicious, 
                         by = "neighborhood"),
             by = c("BDNAME" = "neighborhood"))
-mpls_suspicious
 ```
 
   17. Use `leaflet` to create a map from the `mpls_all` data  that colors the neighborhoods by `prop_suspicious`. Display the neighborhood name as you scroll over it. Describe what you observe in the map.
@@ -580,6 +594,6 @@ $\mathrm{Answer:}$ The question I would like to ask is "Is there a relationship 
 
   19. Below, provide a link to your GitHub page with this set of Weekly Exercises. Specifically, if the name of the file is 04_exercises.Rmd, provide a link to the 04_exercises.md file, which is the one that will be most readable on GitHub.
 
+[GitLink](https://github.com/scottyehengzong/04_exercise_scott)
 
 **DID YOU REMEMBER TO UNCOMMENT THE OPTIONS AT THE TOP?**
-
